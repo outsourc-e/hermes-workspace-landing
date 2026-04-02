@@ -4,28 +4,23 @@ import { Reveal } from "./reveal";
 const screenshots = [
   {
     title: "Chat",
-    caption: "Multi-model conversations with tool activity embedded in the thread.",
+    caption: "Multi-model conversations with real-time tool activity.",
     src: "/screenshots/chat.png",
   },
   {
     title: "Memory",
-    caption: "Browse saved context, relationships, and what the agent already knows.",
+    caption: "Browse and search what your agent remembers.",
     src: "/screenshots/memory.png",
   },
   {
     title: "Terminal",
-    caption: "Keep shell access inside the workspace while the agent executes tasks.",
+    caption: "Shell access inside the workspace.",
     src: "/screenshots/terminal.png",
   },
   {
     title: "Skills",
-    caption: "Search and launch the skills catalog without leaving the interface.",
+    caption: "Browse and launch 100+ agent skills.",
     src: "/screenshots/skills.png",
-  },
-  {
-    title: "Settings",
-    caption: "Tune providers, runtime behavior, and workspace preferences in one place.",
-    src: "/screenshots/settings.png",
   },
 ];
 
@@ -50,14 +45,15 @@ export function ScreenshotsSection() {
                 <p className="text-sm font-semibold text-indigo-50">{shot.title}</p>
                 <p className="mt-1 text-sm text-slate-400">{shot.caption}</p>
               </div>
-              <div className="p-5">
-                <Image
-                  src={shot.src}
-                  alt={`${shot.title} screenshot`}
-                  width={1600}
-                  height={1000}
-                  className="screenshot-frame h-auto w-full rounded-2xl object-cover"
-                />
+              <div className="p-4">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
+                  <Image
+                    src={shot.src}
+                    alt={`${shot.title} screenshot`}
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
               </div>
             </div>
           </Reveal>

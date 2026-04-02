@@ -68,32 +68,15 @@ export function HeroSection() {
 
       <Reveal delay={180}>
         <div className="mx-auto mt-12 max-w-5xl">
-          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(19,20,38,0.98),rgba(8,8,18,0.96))] shadow-[0_40px_120px_rgba(2,6,23,0.5)]">
-            <div className="flex items-center justify-between border-b border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] px-4 py-3 sm:px-5">
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-              </div>
-              <div className="hidden rounded-md border border-white/8 bg-slate-950/70 px-3 py-1 font-mono text-[11px] text-slate-400 md:block">
-                hermes-workspace.com
-              </div>
-              <div className="rounded-full border border-indigo-300/15 bg-indigo-400/10 px-2.5 py-1 text-[10px] font-medium text-indigo-100">
-                Splash preview
-              </div>
-            </div>
-            <div className="p-3 sm:p-5">
-              <div className="rounded-[24px] border border-white/8 bg-[radial-gradient(circle_at_top,rgba(129,140,248,0.16),transparent_36%),linear-gradient(180deg,rgba(15,23,42,0.42),rgba(2,6,23,0.15))] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-3">
-                <Image
-                  src="/screenshots/splash.png"
-                  alt="Hermes Workspace splash screen"
-                  width={1600}
-                  height={1000}
-                  priority
-                  className="screenshot-frame h-auto w-full rounded-[18px] object-cover"
-                />
-              </div>
-            </div>
+          <div className="overflow-hidden rounded-2xl border border-white/10 shadow-[0_40px_120px_rgba(2,6,23,0.5)]">
+            <video
+              src="/demo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-auto w-full rounded-2xl object-cover"
+            />
           </div>
         </div>
       </Reveal>

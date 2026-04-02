@@ -15,9 +15,9 @@ export default function Home() {
       <LandingNav />
       <main className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-10">
         <HeroSection />
-        <FeaturesSection />
         <SetupSection />
         <ScreenshotsSection />
+        <FeaturesSection />
       </main>
 
       <FooterSection />
