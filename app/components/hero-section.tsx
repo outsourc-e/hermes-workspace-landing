@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./reveal";
 
 export function HeroSection() {
@@ -9,14 +10,22 @@ export function HeroSection() {
             href="https://github.com/outsourc-e/hermes-workspace"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-block"
+            className="group inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 shadow-[0_24px_80px_rgba(2,6,23,0.35)] backdrop-blur-sm transition hover:border-indigo-300/25 hover:bg-white/[0.05]"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/favicon.svg"
-              alt="Hermes Workspace"
-              className="animate-logo-bounce h-20 w-20 opacity-95 transition-all duration-300 group-hover:scale-110 group-hover:[animation-play-state:paused] group-hover:drop-shadow-[0_0_30px_rgba(99,102,241,0.65)] md:h-28 md:w-28"
+            <Image
+              src="/hermes-avatar.webp"
+              alt="Hermes avatar"
+              width={60}
+              height={60}
+              priority
+              className="animate-logo-bounce h-[60px] w-[60px] rounded-full border border-white/12 object-cover opacity-95 transition-all duration-300 group-hover:scale-105 group-hover:[animation-play-state:paused] group-hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]"
             />
+            <div className="text-left leading-tight">
+              <p className="text-xl font-bold tracking-tight text-indigo-50 sm:text-2xl">
+                Hermes <span className="text-indigo-400">Workspace</span>
+              </p>
+              <p className="text-xs text-slate-400">Open-source UI for Hermes Agent</p>
+            </div>
           </a>
         </div>
 
@@ -59,128 +68,36 @@ export function HeroSection() {
 
       <Reveal delay={180}>
         <div className="mx-auto mt-12 max-w-5xl">
-          <div className="overflow-hidden rounded-[28px] border border-indigo-400/16 bg-[linear-gradient(180deg,rgba(18,18,35,0.95),rgba(9,9,18,0.95))] shadow-2xl shadow-indigo-950/30">
-            <div className="flex items-center justify-between border-b border-indigo-400/10 px-4 py-3">
+          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(19,20,38,0.98),rgba(8,8,18,0.96))] shadow-[0_40px_120px_rgba(2,6,23,0.5)]">
+            <div className="flex items-center justify-between border-b border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] px-4 py-3 sm:px-5">
               <div className="flex items-center gap-2">
                 <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
                 <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
                 <span className="h-3 w-3 rounded-full bg-[#28c840]" />
               </div>
-              <div className="hidden rounded-md border border-indigo-400/10 bg-slate-900/70 px-3 py-1 font-mono text-[11px] text-slate-500 md:block">
+              <div className="hidden rounded-md border border-white/8 bg-slate-950/70 px-3 py-1 font-mono text-[11px] text-slate-400 md:block">
                 hermes-workspace.com
               </div>
-              <div className="rounded-full border border-emerald-400/15 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-medium text-emerald-300">
-                Agent online
+              <div className="rounded-full border border-indigo-300/15 bg-indigo-400/10 px-2.5 py-1 text-[10px] font-medium text-indigo-100">
+                Splash preview
               </div>
             </div>
-
-            <div className="grid gap-0 lg:grid-cols-[250px_1fr]">
-              <div className="border-b border-indigo-400/10 bg-slate-950/70 p-4 lg:border-b-0 lg:border-r">
-                <div className="rounded-2xl border border-indigo-400/10 bg-indigo-500/8 p-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-300/80">
-                    Workspace
-                  </p>
-                  <h2 className="mt-3 text-lg font-semibold text-indigo-50">
-                    One place for chat, memory, skills, terminal, and files
-                  </h2>
-                  <div className="mt-4 space-y-2">
-                    {["Chat timeline", "Memory graph", "Tool cards", "File browser"].map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-xl border border-indigo-400/10 bg-slate-950/70 px-3 py-2 text-sm text-slate-300"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 sm:p-6">
-                <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
-                  <div className="rounded-2xl border border-indigo-400/12 bg-slate-950/70 p-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.24em] text-indigo-300/70">
-                          Screenshot Placeholder
-                        </p>
-                        <h3 className="mt-2 text-xl font-semibold text-indigo-50">
-                          Main workspace screenshot
-                        </h3>
-                      </div>
-                      <div className="rounded-full border border-indigo-400/10 bg-indigo-500/10 px-2.5 py-1 font-mono text-[10px] text-indigo-200">
-                        1440 x 900
-                      </div>
-                    </div>
-                    <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                      {[
-                        "Multi-model chat",
-                        "Real-time tools",
-                        "Mobile-first PWA",
-                      ].map((item) => (
-                        <div
-                          key={item}
-                          className="rounded-xl border border-indigo-400/10 bg-black/20 px-3 py-2 text-sm text-slate-300"
-                        >
-                          {item}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-6 h-56 rounded-2xl border border-dashed border-indigo-400/18 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.18),transparent_45%),linear-gradient(180deg,rgba(17,24,39,0.75),rgba(8,8,16,0.92))] p-6 text-left text-slate-400 sm:h-72">
-                      <div className="grid h-full place-items-center rounded-[20px] border border-indigo-400/10 bg-slate-950/30 text-center">
-                        <div>
-                          <p className="font-mono text-xs uppercase tracking-[0.28em] text-indigo-300/75">
-                            Coming Soon
-                          </p>
-                          <p className="mt-3 text-lg text-slate-300">
-                            Product screenshot placeholder
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <MetricCard value="100+" label="skills in browser-ready catalog" />
-                    <MetricCard value="3" label="setup paths for different backends" />
-                    <div className="rounded-2xl border border-indigo-400/12 bg-slate-950/70 p-4">
-                      <p className="text-xs uppercase tracking-[0.24em] text-indigo-300/70">
-                        Numbered flow
-                      </p>
-                      <ol className="mt-4 space-y-3">
-                        {[
-                          "Connect a Hermes backend or any OpenAI-compatible endpoint",
-                          "Open one workspace for chat, memory, tools, and files",
-                          "Watch tool cards stream while your agent thinks and acts",
-                        ].map((step, index) => (
-                          <li key={step} className="flex gap-3">
-                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-indigo-400/14 bg-indigo-500/10 text-sm font-semibold text-indigo-200">
-                              {index + 1}
-                            </span>
-                            <p className="pt-1 text-sm leading-relaxed text-slate-300">{step}</p>
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                  </div>
-                </div>
+            <div className="p-3 sm:p-5">
+              <div className="rounded-[24px] border border-white/8 bg-[radial-gradient(circle_at_top,rgba(129,140,248,0.16),transparent_36%),linear-gradient(180deg,rgba(15,23,42,0.42),rgba(2,6,23,0.15))] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-3">
+                <Image
+                  src="/screenshots/splash.png"
+                  alt="Hermes Workspace splash screen"
+                  width={1600}
+                  height={1000}
+                  priority
+                  className="screenshot-frame h-auto w-full rounded-[18px] object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </Reveal>
     </section>
-  );
-}
-
-function MetricCard({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="rounded-2xl border border-indigo-400/12 bg-slate-950/70 p-4">
-      <p className="bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-3xl font-bold text-transparent">
-        {value}
-      </p>
-      <p className="mt-2 text-sm text-slate-400">{label}</p>
-    </div>
   );
 }
 

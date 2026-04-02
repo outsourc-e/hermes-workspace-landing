@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type BrandProps = {
   compact?: boolean;
 };
@@ -5,14 +7,15 @@ type BrandProps = {
 export function Brand({ compact = false }: BrandProps) {
   return (
     <div className="flex items-center gap-3">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/favicon.svg"
-        alt="Hermes Workspace"
+      <Image
+        src="/hermes-avatar.webp"
+        alt="Hermes avatar"
+        width={compact ? 32 : 60}
+        height={compact ? 32 : 60}
         className={
           compact
-            ? "h-10 w-10 drop-shadow-[0_0_16px_rgba(99,102,241,0.42)]"
-            : "h-12 w-12 drop-shadow-[0_0_18px_rgba(99,102,241,0.45)]"
+            ? "h-8 w-8 rounded-full border border-white/12 object-cover shadow-[0_10px_30px_rgba(15,23,42,0.35)]"
+            : "h-[60px] w-[60px] rounded-full border border-white/12 object-cover shadow-[0_14px_36px_rgba(15,23,42,0.42)]"
         }
       />
       <div className="leading-tight">

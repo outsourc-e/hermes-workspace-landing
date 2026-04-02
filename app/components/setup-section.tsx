@@ -8,8 +8,9 @@ const setupPaths = [
     badge: "Recommended",
     accent: "border-indigo-500/30 shadow-indigo-950/30",
     lines: [
-      "git clone https://github.com/outsourc-e/hermes-agent.git",
-      "cd hermes-agent",
+      "git clone https://github.com/outsourc-e/hermes-agent.git &&",
+      "cd hermes-agent &&",
+      "pip install -e . &&",
       "hermes --gateway",
     ],
   },
@@ -20,8 +21,9 @@ const setupPaths = [
     badge: "Basic chat",
     accent: "border-violet-500/20 shadow-violet-950/20",
     lines: [
-      "git clone https://github.com/NousResearch/hermes-agent.git",
-      "cd hermes-agent",
+      "git clone https://github.com/NousResearch/hermes-agent.git &&",
+      "cd hermes-agent &&",
+      "pip install -e . &&",
       "hermes --gateway",
     ],
   },
@@ -33,8 +35,7 @@ const setupPaths = [
     accent: "border-sky-500/20 shadow-sky-950/20",
     lines: [
       "export OPENAI_BASE_URL=http://localhost:11434/v1",
-      "export OPENAI_API_KEY=dummy",
-      "Use Hermes Workspace with any compatible endpoint",
+      "export OPENAI_API_KEY=ollama",
     ],
   },
 ];
@@ -54,7 +55,7 @@ export function SetupSection() {
         </p>
       </Reveal>
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
+      <div className="mt-12 grid gap-5 xl:grid-cols-3">
         {setupPaths.map((path, index) => (
           <Reveal key={path.title} delay={index * 80}>
             <article
@@ -84,9 +85,9 @@ export function SetupSection() {
                     <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
                     <span className="ml-auto font-mono text-[10px] text-slate-600">terminal</span>
                   </div>
-                  <div className="overflow-x-auto p-4 font-mono text-xs text-left sm:text-sm">
+                  <div className="overflow-x-auto p-4 font-mono text-left text-xs">
                     {path.lines.map((line) => (
-                      <div key={line} className="whitespace-nowrap text-slate-300">
+                      <div key={line} className="min-w-max whitespace-nowrap text-slate-300">
                         <span className="mr-2 text-indigo-400">$</span>
                         {line}
                       </div>

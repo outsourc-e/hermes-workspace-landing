@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerLinks = [
   {
     label: "Hermes Workspace GitHub",
@@ -14,11 +16,12 @@ export function FooterSection() {
     <footer className="relative z-10 border-t border-indigo-500/10 bg-[#070710]/70 pb-16 md:pb-0">
       <div className="px-6 py-10 text-center md:px-10 md:py-12">
         <div className="mb-5 flex justify-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/favicon.svg"
-            alt="Hermes Workspace"
-            className="animate-logo-bounce h-10 w-10 transition-all duration-300 hover:scale-110 hover:[animation-play-state:paused] hover:drop-shadow-[0_0_24px_rgba(99,102,241,0.55)]"
+          <Image
+            src="/hermes-avatar.webp"
+            alt="Hermes avatar"
+            width={40}
+            height={40}
+            className="animate-logo-bounce h-10 w-10 rounded-full border border-white/12 object-cover transition-all duration-300 hover:scale-110 hover:[animation-play-state:paused] hover:shadow-[0_0_24px_rgba(99,102,241,0.3)]"
           />
         </div>
 
