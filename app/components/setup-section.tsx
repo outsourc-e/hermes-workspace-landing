@@ -9,15 +9,13 @@ const backends = [
     label: "Hermes Agent",
     badge: "Recommended",
     description:
-      "Full features — sessions, memory, skills, config, and streaming. Use our fork for extended gateway endpoints.",
+      "Full features — sessions, memory, skills, config, and streaming. Clone, don't fork: workspace runs on vanilla hermes-agent from PyPI.",
     lines: [
-      { text: "git clone https://github.com/outsourc-e/hermes-agent.git", comment: null },
-      { text: "cd hermes-agent", comment: null },
-      { text: "pip install -e .", comment: null },
+      { text: "pip install hermes-agent", comment: "# vanilla, no fork" },
       { text: "hermes setup", comment: "# pick your provider" },
-      { text: "hermes --gateway", comment: "# starts on :8642" },
+      { text: "hermes gateway run", comment: "# starts on :8642" },
     ],
-    note: "Upstream NousResearch/hermes-agent also works — basic chat without sessions/memory/skills.",
+    note: "v2+ requires no fork — upstream shipped full parity. Run `pip install -U hermes-agent` any time to upgrade.",
   },
   {
     id: "openai",
