@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" fill="none" stroke="currentColor" stroke-width="1">
+  <!-- Abstract Greek meander + wave motif at low opacity, repeated.
+       Not a literal frieze photo — a schematic pattern that reads "Greek". -->
+
+  <!-- Meander pattern row 1 -->
+  <g transform="translate(0,80)" stroke-width="1.5">
+    <path d="M 0,0 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40" />
+  </g>
+
+  <!-- Wave pattern row 2 -->
+  <g transform="translate(0,280)" stroke-width="1.5" fill="none">
+    <path d="M 0,40 Q 60,0 120,40 T 240,40 T 360,40 T 480,40 T 600,40 T 720,40 T 840,40 T 960,40 T 1080,40 T 1200,40" />
+    <path d="M 0,80 Q 60,40 120,80 T 240,80 T 360,80 T 480,80 T 600,80 T 720,80 T 840,80 T 960,80 T 1080,80 T 1200,80" />
+  </g>
+
+  <!-- Column capital motif (stylized Ionic volutes) -->
+  <g transform="translate(100,500)" stroke-width="2">
+    <circle cx="0" cy="0" r="32" />
+    <circle cx="0" cy="0" r="18" />
+    <path d="M -60,0 a 60,60 0 0 1 120,0" />
+    <line x1="-60" y1="0" x2="60" y2="0" />
+    <line x1="-80" y1="10" x2="80" y2="10" />
+  </g>
+
+  <g transform="translate(400,500)" stroke-width="2">
+    <circle cx="0" cy="0" r="32" />
+    <circle cx="0" cy="0" r="18" />
+    <path d="M -60,0 a 60,60 0 0 1 120,0" />
+    <line x1="-60" y1="0" x2="60" y2="0" />
+    <line x1="-80" y1="10" x2="80" y2="10" />
+  </g>
+
+  <g transform="translate(700,500)" stroke-width="2">
+    <circle cx="0" cy="0" r="32" />
+    <circle cx="0" cy="0" r="18" />
+    <path d="M -60,0 a 60,60 0 0 1 120,0" />
+    <line x1="-60" y1="0" x2="60" y2="0" />
+    <line x1="-80" y1="10" x2="80" y2="10" />
+  </g>
+
+  <g transform="translate(1000,500)" stroke-width="2">
+    <circle cx="0" cy="0" r="32" />
+    <circle cx="0" cy="0" r="18" />
+    <path d="M -60,0 a 60,60 0 0 1 120,0" />
+    <line x1="-60" y1="0" x2="60" y2="0" />
+    <line x1="-80" y1="10" x2="80" y2="10" />
+  </g>
+
+  <!-- Meander row 3 (inverted) -->
+  <g transform="translate(0,700) scale(1,-1)" stroke-width="1.5">
+    <path d="M 0,0 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40 h 40 v 40 h 40 v -40" />
+  </g>
+
+  <!-- Wave row 4 -->
+  <g transform="translate(0,900)" stroke-width="1.5" fill="none">
+    <path d="M 0,40 Q 60,0 120,40 T 240,40 T 360,40 T 480,40 T 600,40 T 720,40 T 840,40 T 960,40 T 1080,40 T 1200,40" />
+  </g>
+
+  <!-- Amphora silhouettes spaced -->
+  <g transform="translate(200,1050)" stroke-width="2" fill="none">
+    <path d="M -25,-60 a 25,15 0 0 1 50,0 l -5,10 a 30,20 0 1 0 -40,0 z M -10,-60 v -15 h 20 v 15 M -15,-75 h 30" />
+  </g>
+
+  <g transform="translate(600,1050)" stroke-width="2" fill="none">
+    <path d="M -25,-60 a 25,15 0 0 1 50,0 l -5,10 a 30,20 0 1 0 -40,0 z M -10,-60 v -15 h 20 v 15 M -15,-75 h 30" />
+  </g>
+
+  <g transform="translate(1000,1050)" stroke-width="2" fill="none">
+    <path d="M -25,-60 a 25,15 0 0 1 50,0 l -5,10 a 30,20 0 1 0 -40,0 z M -10,-60 v -15 h 20 v 15 M -15,-75 h 30" />
+  </g>
+</svg>
