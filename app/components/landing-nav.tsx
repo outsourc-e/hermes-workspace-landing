@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Brand } from "./brand";
 
 const navLinks = [
-  { href: "#features", label: "Features" },
+  { href: "#features", label: "Catalog" },
   { href: "#setup", label: "Setup" },
-  { href: "#screenshots", label: "Screenshots" },
+  { href: "#screenshots", label: "Screens" },
   {
     href: "https://github.com/outsourc-e/hermes-workspace",
     label: "GitHub",
@@ -18,20 +18,20 @@ export function LandingNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-indigo-500/10 bg-[#070710]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/85 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 md:px-10 md:py-4">
-        <a href="#top" aria-label="Hermes Workspace home">
+        <a href="#top" aria-label="Project Workspace home" className="flex items-center">
           <Brand compact />
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+        <nav className="hidden items-center gap-8 text-sm tracking-tight text-[var(--muted-strong)] md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="transition hover:text-indigo-50"
+              className="transition-colors hover:text-[var(--foreground)]"
             >
               {link.label}
             </a>
@@ -42,15 +42,15 @@ export function LandingNav() {
           href="https://github.com/outsourc-e/hermes-workspace"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden items-center gap-2 rounded-lg bg-indigo-500 px-3 py-2 text-sm font-medium text-white transition hover:bg-indigo-400 md:inline-flex"
+          className="cta-primary hidden items-center gap-2 rounded-md px-3 py-2 text-xs font-medium tracking-tight md:inline-flex"
         >
-          <GitHubIcon className="h-4 w-4" />
-          Get Started
+          <GitHubIcon className="h-3.5 w-3.5" />
+          Get started
         </a>
 
         <button
           onClick={() => setOpen(!open)}
-          className="flex flex-col items-center justify-center gap-1.5 p-2 text-slate-300 transition hover:text-indigo-50 md:hidden"
+          className="flex flex-col items-center justify-center gap-1.5 p-2 text-[var(--muted-strong)] transition-colors hover:text-[var(--foreground)] md:hidden"
           aria-label="Toggle menu"
         >
           <span
@@ -66,7 +66,7 @@ export function LandingNav() {
       </div>
 
       {open && (
-        <div className="border-t border-indigo-500/10 bg-[#070710]/95 px-4 pb-4 pt-2 backdrop-blur-xl md:hidden">
+        <div className="border-t border-[var(--border)] bg-[var(--background)] px-4 pb-4 pt-2 md:hidden">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
@@ -75,7 +75,7 @@ export function LandingNav() {
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition hover:bg-indigo-500/10 hover:text-indigo-50"
+                className="rounded px-3 py-2.5 text-sm text-[var(--muted-strong)] transition-colors hover:bg-[var(--brand-soft)] hover:text-[var(--foreground)]"
               >
                 {link.label}
               </a>
@@ -85,10 +85,10 @@ export function LandingNav() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-indigo-500 px-3 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-400"
+              className="cta-primary mt-2 flex items-center justify-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium"
             >
               <GitHubIcon className="h-4 w-4" />
-              Get Started
+              Get started
             </a>
           </nav>
         </div>

@@ -14,7 +14,7 @@ const screenshots = [
   },
   {
     title: "Terminal",
-    caption: "Shell access inside the workspace.",
+    caption: "Browser-native pty inside the workspace.",
     src: "/screenshots/terminal.png",
   },
   {
@@ -26,27 +26,32 @@ const screenshots = [
 
 export function ScreenshotsSection() {
   return (
-    <section id="screenshots" className="py-20 md:py-24">
+    <section id="screenshots" className="py-20 md:py-28">
       <Reveal className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-300/80">
-          Screenshots
-        </p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-indigo-50 md:text-4xl">
-          The interface, section by section
+        <p className="micro-label">Plates</p>
+        <h2 className="editorial-display mt-4 text-4xl text-[var(--foreground)] md:text-5xl">
+          Section by section.
         </h2>
-        <p className="mt-4 text-lg text-slate-400">Real product screens across the core workflow.</p>
+        <p className="mt-5 text-base text-[var(--muted-strong)] md:text-lg">
+          Real product screens across the core workflow.
+        </p>
       </Reveal>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
+      <div className="mt-14 grid gap-px bg-[var(--border)] md:grid-cols-2">
         {screenshots.map((shot, index) => (
-          <Reveal key={shot.title} delay={index * 80}>
-            <div className="overflow-hidden rounded-3xl border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.76),rgba(5,5,12,0.92))] shadow-[0_28px_80px_rgba(2,6,23,0.24)]">
-              <div className="border-b border-white/6 px-5 py-4">
-                <p className="text-sm font-semibold text-indigo-50">{shot.title}</p>
-                <p className="mt-1 text-sm text-slate-400">{shot.caption}</p>
+          <Reveal key={shot.title} delay={index * 70}>
+            <figure className="bg-[var(--background)]">
+              <div className="border-b border-[var(--border-subtle)] px-6 py-4">
+                <p className="micro-label">{`Plate ${String(index + 1).padStart(2, "0")}`}</p>
+                <p className="mt-1 text-base font-semibold tracking-tight text-[var(--foreground)]">
+                  {shot.title}
+                </p>
+                <p className="mt-1 text-sm text-[var(--muted-strong)]">
+                  {shot.caption}
+                </p>
               </div>
-              <div className="p-4">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
+              <div className="p-6">
+                <div className="relative aspect-[16/10] w-full overflow-hidden border border-[var(--border)] bg-[var(--panel)]">
                   <Image
                     src={shot.src}
                     alt={`${shot.title} screenshot`}
@@ -55,7 +60,7 @@ export function ScreenshotsSection() {
                   />
                 </div>
               </div>
-            </div>
+            </figure>
           </Reveal>
         ))}
       </div>

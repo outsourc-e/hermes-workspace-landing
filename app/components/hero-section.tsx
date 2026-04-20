@@ -3,79 +3,79 @@ import { Reveal } from "./reveal";
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative py-10 md:py-24">
-      <Reveal className="mx-auto max-w-5xl text-center">
+    <section id="top" className="relative pt-12 pb-16 md:pt-24 md:pb-24">
+      <Reveal className="mx-auto max-w-4xl text-center">
+        {/* Avatar in editorial frame */}
         <div className="mb-8 flex justify-center">
-          <a
-            href="https://github.com/outsourc-e/hermes-workspace"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 shadow-[0_24px_80px_rgba(2,6,23,0.35)] backdrop-blur-sm transition hover:border-indigo-300/25 hover:bg-white/[0.05]"
-          >
-            <Image
-              src="/hermes-avatar.webp"
-              alt="Hermes avatar"
-              width={60}
-              height={60}
-              priority
-              className="animate-logo-bounce h-[60px] w-[60px] rounded-full border border-white/12 object-cover opacity-95 transition-all duration-300 group-hover:scale-105 group-hover:[animation-play-state:paused] group-hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]"
-            />
-            <div className="text-left leading-tight">
-              <p className="text-xl font-bold tracking-tight text-indigo-50 sm:text-2xl">
-                Hermes <span className="text-indigo-400">Workspace</span>
-              </p>
-              <p className="text-xs text-slate-400">Open-source UI for Hermes Agent</p>
-            </div>
-          </a>
+          <Image
+            src="/hermes-avatar.webp"
+            alt="Project Workspace"
+            width={84}
+            height={84}
+            priority
+            className="h-[84px] w-[84px] rounded-md border border-[var(--border)] bg-[var(--panel)] object-cover p-[5px]"
+          />
         </div>
 
-        <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-indigo-400/20 bg-indigo-500/8 px-4 py-2 text-xs text-indigo-100 sm:text-sm">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-indigo-400" />
-          Open-source UI for Hermes Agent
-        </div>
+        {/* Micro-label */}
+        <p className="micro-label">Project Workspace · v2</p>
 
-        <h1 className="mx-auto mt-6 max-w-4xl text-balance text-4xl font-semibold tracking-tight text-indigo-50 sm:text-5xl lg:text-7xl">
-          Your AI agent&apos;s{" "}
-          <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-300 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(99,102,241,0.3)]">
-            command center
-          </span>
+        {/* Editorial display title */}
+        <h1 className="editorial-display mx-auto mt-5 max-w-3xl text-balance text-5xl text-[var(--foreground)] md:text-6xl lg:text-7xl">
+          The agent workspace,<br />
+          rebuilt as a quiet instrument.
         </h1>
 
-        <p className="mx-auto mt-6 max-w-3xl text-pretty text-base leading-relaxed text-slate-300 md:text-lg lg:text-xl">
-          Chat, memory, skills, terminal, and files — one interface for everything
-          your agent does.
+        {/* Sub */}
+        <p className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-[var(--muted-strong)] md:text-lg">
+          Chat, memory, skills, terminal, files — one editorial interface
+          for everything Project Agent does. Open-source, self-hosted, MIT.
         </p>
 
+        {/* CTAs */}
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <a
             href="#setup"
-            className="btn-glow inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-7 py-3.5 text-base font-medium text-white shadow-lg shadow-indigo-500/25 transition hover:-translate-y-0.5 hover:from-indigo-400 hover:to-violet-400 hover:scale-[1.03] sm:w-auto"
+            className="cta-primary inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium tracking-tight sm:w-auto"
           >
-            Get Started
+            Install in 60 seconds
             <ArrowRightIcon className="h-4 w-4" />
           </a>
           <a
             href="https://github.com/outsourc-e/hermes-workspace"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-indigo-400/20 bg-slate-950/70 px-7 py-3.5 text-base font-medium text-indigo-100 transition hover:-translate-y-0.5 hover:border-indigo-400/40 hover:bg-slate-900/90 sm:w-auto"
+            className="cta-secondary inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium tracking-tight sm:w-auto"
           >
-            <GitHubIcon className="h-5 w-5" />
-            GitHub
+            <GitHubIcon className="h-4 w-4" />
+            View on GitHub
           </a>
         </div>
+
+        {/* Inline curl one-liner — instant credibility */}
+        <Reveal delay={120}>
+          <div className="mx-auto mt-10 max-w-xl">
+            <div className="terminal-card flex items-center gap-3 px-4 py-3 text-left text-xs">
+              <span className="term-prompt shrink-0">$</span>
+              <code className="overflow-x-auto whitespace-nowrap text-[var(--terminal-text)]">
+                curl -fsSL https://hermes-workspace.com/install.sh | bash
+              </code>
+            </div>
+          </div>
+        </Reveal>
       </Reveal>
 
-      <Reveal delay={180}>
-        <div className="mx-auto mt-12 max-w-5xl">
-          <div className="overflow-hidden rounded-2xl border border-white/10 shadow-[0_40px_120px_rgba(2,6,23,0.5)]">
+      {/* Demo video — thin frame, no shadow */}
+      <Reveal delay={200}>
+        <div className="mx-auto mt-16 max-w-5xl">
+          <div className="frame overflow-hidden">
             <video
               src="/demo.mp4"
               autoPlay
               muted
               loop
               playsInline
-              className="h-auto w-full rounded-2xl object-cover"
+              className="h-auto w-full object-cover"
             />
           </div>
         </div>
@@ -86,7 +86,7 @@ export function HeroSection() {
 
 function ArrowRightIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
     </svg>
   );

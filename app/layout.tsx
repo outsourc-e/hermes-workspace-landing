@@ -2,29 +2,29 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hermes Workspace | Your AI agent's command center",
+  title: "Project Workspace · Editorial UI for Project Agent",
   description:
-    "Open-source web UI for Hermes Agent. Chat, memory, skills, terminal, and files in one interface.",
+    "Open-source editorial workspace for Project Agent. Chat, memory, skills, terminal, files — one quiet instrument. Self-hosted, MIT.",
   metadataBase: new URL("https://hermes-workspace.com"),
   alternates: {
     canonical: "https://hermes-workspace.com",
   },
   openGraph: {
-    title: "Hermes Workspace | Your AI agent's command center",
+    title: "Project Workspace · Editorial UI for Project Agent",
     description:
-      "Open-source web UI for Hermes Agent. Chat, memory, skills, terminal, and files in one interface.",
+      "Open-source editorial workspace for Project Agent. Chat, memory, skills, terminal, files — one quiet instrument.",
     url: "https://hermes-workspace.com",
-    siteName: "Hermes Workspace",
+    siteName: "Project Workspace",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og-image.png?v=2", width: 1200, height: 630, alt: "Hermes Workspace" }],
+    images: [{ url: "/og-image.png?v=3", width: 1200, height: 630, alt: "Project Workspace" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hermes Workspace | Your AI agent's command center",
+    title: "Project Workspace · Editorial UI for Project Agent",
     description:
-      "Chat, memory, skills, terminal, and files — one interface for everything your agent does.",
-    images: ["/og-image.png?v=2"],
+      "Chat, memory, skills, terminal, files — one editorial interface for everything Project Agent does.",
+    images: ["/og-image.png?v=3"],
   },
   icons: {
     icon: "/favicon.ico",

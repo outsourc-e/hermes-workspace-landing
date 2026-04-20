@@ -6,10 +6,9 @@ import { Reveal } from "./reveal";
 const backends = [
   {
     id: "hermes",
-    label: "Hermes Agent",
-    badge: "Recommended",
+    label: "Project Agent",
     description:
-      "Full features — sessions, memory, skills, config, and streaming. Clone, don't fork: workspace runs on vanilla hermes-agent from PyPI.",
+      "Full features — sessions, memory, skills, config, streaming. Clone, don't fork: workspace runs on vanilla hermes-agent from PyPI.",
     lines: [
       { text: "pip install hermes-agent", comment: "# vanilla, no fork" },
       { text: "hermes setup", comment: "# pick your provider" },
@@ -19,14 +18,13 @@ const backends = [
   },
   {
     id: "openai",
-    label: "Any OpenAI Backend",
-    badge: "Portable",
+    label: "Any OpenAI backend",
     description:
-      "Ollama, vLLM, LM Studio, or any endpoint that serves /v1/chat/completions. No Python needed.",
+      "Ollama, vLLM, LM Studio, or any endpoint that serves /v1/chat/completions. No Python required.",
     lines: [
       { text: "ollama serve", comment: "# or any OpenAI-compat server" },
     ],
-    note: "Configure the backend URL in Hermes Workspace settings after connecting.",
+    note: "Configure the backend URL in workspace settings after connecting.",
   },
 ];
 
@@ -35,37 +33,38 @@ export function SetupSection() {
   const backend = backends.find((b) => b.id === active) ?? backends[0];
 
   return (
-    <section id="setup" className="py-20 md:py-24">
+    <section id="setup" className="py-20 md:py-28">
       <Reveal className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-300/80">
-          Setup
-        </p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-indigo-50 md:text-4xl">
-          Get running in under 3 minutes
+        <p className="micro-label">Setup</p>
+        <h2 className="editorial-display mt-4 text-4xl text-[var(--foreground)] md:text-5xl">
+          Running in three minutes.
         </h2>
-        <p className="mt-4 text-lg text-slate-400">
-          Pick your backend, install the workspace, and you&apos;re live.
+        <p className="mt-5 text-base text-[var(--muted-strong)] md:text-lg">
+          Pick your backend, install the workspace, point the browser.
         </p>
       </Reveal>
 
       <Reveal delay={100}>
-        <div className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.72),rgba(5,5,12,0.88))] shadow-2xl">
-          {/* Step 1 header + tabs */}
-          <div className="border-b border-white/6 px-5 py-4">
-            <div className="flex items-center justify-between">
+        <div className="mx-auto mt-14 max-w-3xl frame overflow-hidden">
+          {/* Step 1 */}
+          <div className="border-b border-[var(--border-subtle)] px-6 py-5">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-base font-semibold text-indigo-50">Step 1 — Start your backend</p>
+                <p className="micro-label mb-2">Step 1</p>
+                <p className="text-base font-semibold text-[var(--foreground)]">
+                  Start your backend
+                </p>
               </div>
-              <div className="flex gap-1 rounded-xl border border-white/8 bg-white/5 p-1">
+              <div className="flex gap-1 rounded-md border border-[var(--border)] bg-[var(--panel-2)] p-1">
                 {backends.map((b) => (
                   <button
                     key={b.id}
                     type="button"
                     onClick={() => setActive(b.id)}
-                    className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
+                    className={`rounded px-3 py-1.5 text-xs font-medium tracking-tight transition-colors ${
                       active === b.id
-                        ? "bg-indigo-500/20 text-indigo-200 shadow-sm"
-                        : "text-slate-400 hover:text-slate-300"
+                        ? "bg-[var(--background)] text-[var(--foreground)] shadow-[inset_0_0_0_1px_var(--border)]"
+                        : "text-[var(--muted)] hover:text-[var(--foreground)]"
                     }`}
                   >
                     {b.label}
@@ -75,23 +74,27 @@ export function SetupSection() {
             </div>
           </div>
 
-          <div className="p-5">
-            <p className="text-sm leading-relaxed text-slate-400">{backend.description}</p>
+          <div className="px-6 py-5">
+            <p className="text-sm leading-relaxed text-[var(--muted-strong)]">
+              {backend.description}
+            </p>
 
-            <div className="mt-4 overflow-hidden rounded-2xl border border-white/6 bg-black/40">
-              <div className="flex items-center gap-2 border-b border-white/6 px-4 py-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-auto font-mono text-[10px] text-slate-600">terminal</span>
+            <div className="terminal-card mt-4 overflow-hidden">
+              <div className="flex items-center gap-2 border-b border-white/5 px-4 py-2">
+                <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                <span className="ml-auto text-[10px] tracking-[0.16em] text-white/30 uppercase">
+                  terminal
+                </span>
               </div>
-              <div className="overflow-x-auto p-4 font-mono text-xs leading-6">
+              <div className="overflow-x-auto px-4 py-3 font-mono text-xs leading-6">
                 {backend.lines.map((line) => (
                   <div key={line.text} className="min-w-max whitespace-nowrap">
-                    <span className="mr-2 text-indigo-400">$</span>
-                    <span className="text-slate-300">{line.text}</span>
+                    <span className="term-prompt mr-2">$</span>
+                    <span className="text-[var(--terminal-text)]">{line.text}</span>
                     {line.comment && (
-                      <span className="ml-2 text-slate-600">{line.comment}</span>
+                      <span className="term-comment ml-2">{line.comment}</span>
                     )}
                   </div>
                 ))}
@@ -99,42 +102,51 @@ export function SetupSection() {
             </div>
 
             {backend.note && (
-              <p className="mt-3 text-xs leading-relaxed text-slate-500">{backend.note}</p>
+              <p className="mt-3 text-xs leading-relaxed text-[var(--muted)]">
+                {backend.note}
+              </p>
             )}
           </div>
 
-          {/* Step 2 — Workspace install */}
-          <div className="border-t border-white/6 px-5 py-4">
-            <p className="text-base font-semibold text-indigo-50">Step 2 — Install Hermes Workspace</p>
+          {/* Step 2 */}
+          <div className="border-y border-[var(--border-subtle)] px-6 py-5">
+            <p className="micro-label mb-2">Step 2</p>
+            <p className="text-base font-semibold text-[var(--foreground)]">
+              Install the workspace
+            </p>
           </div>
-          <div className="px-5 pb-5">
-            <div className="overflow-hidden rounded-2xl border border-white/6 bg-black/40">
-              <div className="flex items-center gap-2 border-b border-white/6 px-4 py-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-auto font-mono text-[10px] text-slate-600">terminal</span>
+
+          <div className="px-6 py-5">
+            <p className="text-sm leading-relaxed text-[var(--muted-strong)]">
+              One command. Re-runnable. Detects Node, Python, pnpm — installs
+              what's missing.
+            </p>
+            <div className="terminal-card mt-4 overflow-hidden">
+              <div className="flex items-center gap-2 border-b border-white/5 px-4 py-2">
+                <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                <span className="ml-auto text-[10px] tracking-[0.16em] text-white/30 uppercase">
+                  terminal
+                </span>
               </div>
-              <div className="overflow-x-auto p-4 font-mono text-xs leading-6">
+              <div className="overflow-x-auto px-4 py-3 font-mono text-xs leading-6">
                 <div className="min-w-max whitespace-nowrap">
-                  <span className="mr-2 text-indigo-400">$</span>
-                  <span className="text-slate-300">git clone https://github.com/outsourc-e/hermes-workspace.git</span>
+                  <span className="term-prompt mr-2">$</span>
+                  <span className="text-[var(--terminal-text)]">
+                    curl -fsSL https://hermes-workspace.com/install.sh | bash
+                  </span>
                 </div>
-                <div className="min-w-max whitespace-nowrap">
-                  <span className="mr-2 text-indigo-400">$</span>
-                  <span className="text-slate-300">cd hermes-workspace</span>
-                </div>
-                <div className="min-w-max whitespace-nowrap">
-                  <span className="mr-2 text-indigo-400">$</span>
-                  <span className="text-slate-300">pnpm install</span>
-                </div>
-                <div className="min-w-max whitespace-nowrap">
-                  <span className="mr-2 text-indigo-400">$</span>
-                  <span className="text-slate-300">pnpm dev</span>
-                  <span className="ml-2 text-slate-600"># opens on localhost:3000</span>
+                <div className="min-w-max whitespace-nowrap text-[var(--terminal-text)]/60">
+                  <span className="term-comment">
+                    # opens at http://localhost:3000
+                  </span>
                 </div>
               </div>
             </div>
+            <p className="mt-3 text-xs leading-relaxed text-[var(--muted)]">
+              Prefer manual? <a className="underline decoration-[var(--brand-line)] underline-offset-2 hover:text-[var(--brand)]" href="https://github.com/outsourc-e/hermes-workspace#install">git clone + pnpm install</a>.
+            </p>
           </div>
         </div>
       </Reveal>
