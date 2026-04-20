@@ -52,9 +52,11 @@ export function LandingNav() {
           </a>
         </div>
 
+        <div className="flex items-center gap-1 md:hidden">
+          <SiteThemeToggle compact />
         <button
           onClick={() => setOpen(!open)}
-          className="flex flex-col items-center justify-center gap-1.5 p-2 text-[var(--muted-strong)] transition-colors hover:text-[var(--foreground)] md:hidden"
+          className="flex flex-col items-center justify-center gap-1.5 p-2 text-[var(--muted-strong)] transition-colors hover:text-[var(--foreground)]"
           aria-label="Toggle menu"
         >
           <span
@@ -67,6 +69,7 @@ export function LandingNav() {
             className={`block h-0.5 w-5 bg-current transition-all duration-200 ${open ? "-translate-y-2 -rotate-45" : ""}`}
           />
         </button>
+        </div>
       </div>
 
       {open && (
@@ -84,9 +87,6 @@ export function LandingNav() {
                 {link.label}
               </a>
             ))}
-            <div className="mt-2 flex items-center justify-center">
-              <SiteThemeToggle />
-            </div>
             <a
               href="https://github.com/outsourc-e/hermes-workspace"
               target="_blank"
