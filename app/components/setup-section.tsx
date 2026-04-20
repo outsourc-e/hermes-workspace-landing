@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "./reveal";
+import { TerminalCommand } from "./terminal-command";
 
 export function SetupSection() {
   return (
@@ -36,23 +37,12 @@ export function SetupSection() {
               Re-runnable.
             </p>
 
-            <div className="terminal-card mt-4 overflow-hidden">
-              <div className="flex items-center gap-2 border-b border-[var(--terminal-border)] px-4 py-2">
-                <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-                <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-                <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-                <span className="ml-auto text-[10px] tracking-[0.16em] text-[var(--terminal-muted)] uppercase">
-                  terminal
-                </span>
-              </div>
-              <div className="overflow-x-auto px-4 py-3 font-mono text-xs leading-6">
-                <div className="min-w-max whitespace-nowrap">
-                  <span className="term-prompt mr-2">$</span>
-                  <span className="text-[var(--terminal-text)]">
-                    curl -fsSL https://hermes-workspace.com/install.sh | bash
-                  </span>
-                </div>
-              </div>
+            <div className="mt-4">
+              <TerminalCommand
+                lines={[
+                  { text: "curl -fsSL https://hermes-workspace.com/install.sh | bash" },
+                ]}
+              />
             </div>
           </div>
 
@@ -72,27 +62,14 @@ export function SetupSection() {
               models, memory, and skills. The workspace on <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[12px] font-mono text-[var(--foreground)]">:3000</code> is your interface.
             </p>
 
-            <div className="terminal-card mt-4 overflow-hidden">
-              <div className="flex items-center gap-2 border-b border-[var(--terminal-border)] px-4 py-2">
-                <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-                <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-                <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-                <span className="ml-auto text-[10px] tracking-[0.16em] text-[var(--terminal-muted)] uppercase">
-                  terminal
-                </span>
-              </div>
-              <div className="overflow-x-auto px-4 py-3 font-mono text-xs leading-6">
-                <div className="min-w-max whitespace-nowrap">
-                  <span className="term-prompt mr-2">$</span>
-                  <span className="text-[var(--terminal-text)]">hermes gateway run</span>
-                  <span className="term-comment ml-2"># terminal 1 · :8642</span>
-                </div>
-                <div className="min-w-max whitespace-nowrap">
-                  <span className="term-prompt mr-2">$</span>
-                  <span className="text-[var(--terminal-text)]">cd ~/hermes-workspace && pnpm dev</span>
-                  <span className="term-comment ml-2"># terminal 2 · :3000</span>
-                </div>
-              </div>
+            <div className="mt-4">
+              <TerminalCommand
+                lines={[
+                  { text: "hermes gateway run", comment: "# terminal 1 · :8642" },
+                  { text: "cd ~/hermes-workspace && pnpm dev", comment: "# terminal 2 · :3000" },
+                ]}
+                copyText={"hermes gateway run\ncd ~/hermes-workspace && pnpm dev"}
+              />
             </div>
 
             <p className="mt-3 text-xs leading-relaxed text-[var(--muted)]">
@@ -101,7 +78,7 @@ export function SetupSection() {
             </p>
           </div>
 
-          {/* Optional — backend choice footnote */}
+          {/* Provider compatibility footnote */}
           <div className="border-t border-[var(--border-subtle)] bg-[var(--panel-2)] px-6 py-4">
             <p className="text-xs leading-relaxed text-[var(--muted-strong)]">
               <span className="micro-label mr-2">Compatible with</span>

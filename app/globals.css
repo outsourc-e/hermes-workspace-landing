@@ -197,9 +197,66 @@ body::before {
   background-size: 96px 100%;
 }
 
+/* ── Subtle bouncing avatar (restored from v1, retoned for paper) ── */
+
+@keyframes logo-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-logo-bounce {
+  animation: logo-bounce 3s ease-in-out infinite;
+}
+
+/* ── Copy button (terminal cards) ── */
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid var(--terminal-border);
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--brand);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.copy-btn:hover {
+  background: var(--brand-soft);
+  border-color: var(--brand-line);
+}
+.copy-btn[data-copied='true'] {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand-deep);
+}
+
+/* ── Star pill (inline GitHub stars) ── */
+
+.star-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid var(--brand-line);
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ── Reduced motion ── */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal-block { opacity: 1; transform: none; transition: none; }
+  .animate-logo-bounce { animation: none; }
 }

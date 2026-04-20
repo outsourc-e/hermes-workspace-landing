@@ -7,7 +7,7 @@ export function StickyMobileCta() {
         href="#setup"
         className="cta-primary flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-medium tracking-tight"
       >
-        Install in 60 seconds
+        Install
       </a>
     </div>
   );
