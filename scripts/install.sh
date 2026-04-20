@@ -5,10 +5,11 @@
 #   curl -fsSL https://raw.githubusercontent.com/outsourc-e/hermes-workspace/main/install.sh | bash
 #
 # What it does:
-#   1. Verifies Node 22+, Python 3.11+, pnpm
-#   2. Installs hermes-agent via pip (vanilla, no fork)
+#   1. Verifies Node 22+, git, pnpm
+#   2. Installs hermes-agent via Nous's official upstream installer
+#      (hermes-agent is NOT on PyPI; it's a source install handled by Nous)
 #   3. Clones hermes-workspace
-#   4. Sets up .env, installs deps, starts both servers
+#   4. Sets up .env, installs deps, links bundled skills
 #
 # Re-runnable. Will skip anything already installed.
 
@@ -18,6 +19,7 @@ REPO_URL="${REPO_URL:-https://github.com/outsourc-e/hermes-workspace.git}"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/hermes-workspace}"
 GATEWAY_PORT="${GATEWAY_PORT:-8642}"
 WORKSPACE_PORT="${WORKSPACE_PORT:-3000}"
+NOUS_INSTALLER_URL="${NOUS_INSTALLER_URL:-https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh}"
 
 # ─── helpers ──────────────────────────────────────────────────────────────
 
@@ -40,6 +42,16 @@ banner() {
 EOF
 }
 
+# ensure_path: prepend a dir to PATH for this shell if it's not already there
+ensure_path() {
+  local candidate="$1"
+  [[ -d "$candidate" ]] || return 0
+  case ":$PATH:" in
+    *":$candidate:"*) ;;
+    *) export PATH="$candidate:$PATH" ;;
+  esac
+}
+
 # ─── preflight ────────────────────────────────────────────────────────────
 
 banner
@@ -56,14 +68,8 @@ green "  Node $(node -v) ✓"
 need git "Install git: https://git-scm.com/"
 green "  git $(git --version | awk '{print $3}') ✓"
 
-need python3 "Install Python 3.11+: https://www.python.org/"
-py_major=$(python3 -c 'import sys; print(sys.version_info[0])')
-py_minor=$(python3 -c 'import sys; print(sys.version_info[1])')
-if [[ "$py_major" -lt 3 ]] || { [[ "$py_major" -eq 3 ]] && [[ "$py_minor" -lt 11 ]]; }; then
-  red "Python $py_major.$py_minor detected; need 3.11+."
-  exit 1
-fi
-green "  Python $(python3 --version | awk '{print $2}') ✓"
+need curl "Install curl (usually: apt install curl / brew install curl)"
+green "  curl ✓"
 
 if ! command -v pnpm &>/dev/null; then
   yellow "  pnpm not found — installing via corepack…"
@@ -71,14 +77,36 @@ if ! command -v pnpm &>/dev/null; then
 fi
 green "  pnpm $(pnpm --version) ✓"
 
-# ─── install hermes-agent (vanilla, no fork) ──────────────────────────────
+# ─── install hermes-agent (delegate to Nous upstream installer) ──────────
+# hermes-agent is NOT on PyPI. It installs from source via Nous's own
+# script, which handles PEP 668, uv, Python toolchain, Termux, etc. We
+# only need to ensure `hermes` ends up on PATH before continuing.
 
-cyan "→ Installing hermes-agent (vanilla from PyPI)…"
-if ! python3 -c "import project_agent" &>/dev/null; then
-  python3 -m pip install --user --upgrade hermes-agent
-  green "  hermes-agent installed ✓"
+cyan "→ Installing hermes-agent (via Nous upstream installer)…"
+# Pick up hermes if it was installed in a prior run but not on PATH yet
+ensure_path "$HOME/.hermes/bin"
+ensure_path "$HOME/.local/bin"
+
+if command -v hermes &>/dev/null; then
+  green "  hermes-agent already installed ✓ ($(command -v hermes))"
 else
-  green "  hermes-agent already installed ✓"
+  yellow "  Delegating to: $NOUS_INSTALLER_URL"
+  if ! curl -fsSL "$NOUS_INSTALLER_URL" | bash; then
+    red "  Nous installer failed. See its output above for details."
+    red "  You can retry manually:"
+    red "    curl -fsSL $NOUS_INSTALLER_URL | bash"
+    exit 1
+  fi
+  # Nous typically installs `hermes` to ~/.hermes/bin or ~/.local/bin
+  ensure_path "$HOME/.hermes/bin"
+  ensure_path "$HOME/.local/bin"
+  if ! command -v hermes &>/dev/null; then
+    red "  hermes-agent installed, but 'hermes' is not on PATH in this shell."
+    yellow "  Open a new shell (or: source ~/.bashrc / ~/.zshrc) and re-run:"
+    yellow "    curl -fsSL https://hermes-workspace.com/install.sh | bash"
+    exit 1
+  fi
+  green "  hermes-agent installed ✓ ($(command -v hermes))"
 fi
 
 # ─── clone workspace ──────────────────────────────────────────────────────
@@ -107,6 +135,23 @@ green "  .env ready ✓"
 cyan "→ Installing npm deps (pnpm install)…"
 pnpm install --silent
 green "  deps installed ✓"
+
+# ─── seed Hermes skills (Conductor needs workspace-dispatch) ─────────────
+
+cyan "→ Linking bundled skills into ~/.hermes/skills…"
+HERMES_SKILLS_DIR="$HOME/.hermes/skills"
+mkdir -p "$HERMES_SKILLS_DIR"
+if [[ -d "$INSTALL_DIR/skills" ]]; then
+  for skill_path in "$INSTALL_DIR/skills"/*/; do
+    skill_name=$(basename "$skill_path")
+    target="$HERMES_SKILLS_DIR/$skill_name"
+    if [[ -e "$target" || -L "$target" ]]; then
+      continue
+    fi
+    ln -sf "$skill_path" "$target" 2>/dev/null && \
+      green "  linked $skill_name ✓" || true
+  done
+fi
 
 # ─── done ─────────────────────────────────────────────────────────────────
 
