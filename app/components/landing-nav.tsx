@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Brand } from "./brand";
+import { SiteThemeToggle } from "./site-theme-toggle";
 
 const navLinks = [
   { href: "#features", label: "Catalog" },
@@ -38,15 +39,18 @@ export function LandingNav() {
           ))}
         </nav>
 
-        <a
-          href="https://github.com/outsourc-e/hermes-workspace"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-primary hidden items-center gap-2 rounded-md px-3 py-2 text-xs font-medium tracking-tight md:inline-flex"
-        >
-          <GitHubIcon className="h-3.5 w-3.5" />
-          Get started
-        </a>
+        <div className="hidden items-center gap-2 md:flex">
+          <SiteThemeToggle compact />
+          <a
+            href="https://github.com/outsourc-e/hermes-workspace"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-primary inline-flex items-center gap-2 rounded-md px-3 py-2 text-xs font-medium tracking-tight"
+          >
+            <GitHubIcon className="h-3.5 w-3.5" />
+            Get started
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
@@ -80,6 +84,9 @@ export function LandingNav() {
                 {link.label}
               </a>
             ))}
+            <div className="mt-2 flex items-center justify-center">
+              <SiteThemeToggle />
+            </div>
             <a
               href="https://github.com/outsourc-e/hermes-workspace"
               target="_blank"

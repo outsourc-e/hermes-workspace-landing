@@ -38,9 +38,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeBootScript = `
+    (() => {
+      try {
+        const stored = localStorage.getItem('hermes-workspace-landing-theme');
+        const mode = stored === 'dark' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', mode);
+        document.documentElement.style.colorScheme = mode;
+      } catch {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.style.colorScheme = 'light';
+      }
+    })();
+  `;
+
   return (
-    <html lang="en">
-      <body className="antialiased">{children}</body>
+    <html lang="en" data-theme="light">
+      <body className="antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+        {children}
+      </body>
     </html>
   );
 }
