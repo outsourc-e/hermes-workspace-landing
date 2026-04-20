@@ -8,6 +8,16 @@ const screenshots = [
     src: "/screenshots/chat.png",
   },
   {
+    title: "Conductor",
+    caption: "Mission orchestrator — spawn parallel agents, watch them work.",
+    src: "/screenshots/conductor.png",
+  },
+  {
+    title: "Dashboard",
+    caption: "At-a-glance metrics across sessions, messages, tools, tokens.",
+    src: "/screenshots/dashboard.png",
+  },
+  {
     title: "Memory",
     caption: "Browse and search what your agent remembers.",
     src: "/screenshots/memory.png",
@@ -18,9 +28,9 @@ const screenshots = [
     src: "/screenshots/terminal.png",
   },
   {
-    title: "Skills",
-    caption: "Browse and launch 100+ agent skills.",
-    src: "/screenshots/skills.png",
+    title: "Settings",
+    caption: "Themes, providers, accents — 8 paired light/dark themes.",
+    src: "/screenshots/settings.png",
   },
 ];
 
