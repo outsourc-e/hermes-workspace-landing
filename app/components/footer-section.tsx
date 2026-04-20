@@ -6,7 +6,7 @@ const footerLinks = [
     href: "https://github.com/outsourc-e/hermes-workspace",
   },
   {
-    label: "Project Agent",
+    label: "Hermes Agent",
     href: "https://github.com/NousResearch/hermes-agent",
   },
 ];
@@ -43,7 +43,7 @@ export function FooterSection() {
       <div className="border-t border-[var(--border-subtle)]">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-5 text-center text-xs tracking-tight text-[var(--muted)] md:flex-row md:items-center md:justify-between md:px-10 md:text-left">
           <p>MIT License — open source forever</p>
-          <p>An editorial UI for Project Agent</p>
+          <p>An editorial UI for Hermes Agent</p>
         </div>
       </div>
     </footer>

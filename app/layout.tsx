@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hermes Workspace · Editorial UI for Project Agent",
+  title: "Hermes Workspace · Your AI agent’s command center",
   description:
-    "Open-source editorial workspace for Project Agent. Chat, memory, skills, terminal, files — one quiet instrument. Self-hosted, MIT.",
+    "Open-source web UI for your agent. Chat, memory, skills, terminal, and files in one interface.",
   metadataBase: new URL("https://hermes-workspace.com"),
   alternates: {
     canonical: "https://hermes-workspace.com",
   },
   openGraph: {
-    title: "Hermes Workspace · Editorial UI for Project Agent",
+    title: "Hermes Workspace · Your AI agent’s command center",
     description:
-      "Open-source editorial workspace for Project Agent. Chat, memory, skills, terminal, files — one quiet instrument.",
+      "Open-source web UI for your agent. Chat, memory, skills, terminal, and files in one interface.",
     url: "https://hermes-workspace.com",
     siteName: "Hermes Workspace",
     locale: "en_US",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hermes Workspace · Editorial UI for Project Agent",
+    title: "Hermes Workspace · Your AI agent’s command center",
     description:
-      "Chat, memory, skills, terminal, files — one editorial interface for everything Project Agent does.",
+      "Chat, memory, skills, terminal, and files — one interface for everything your agent does.",
     images: ["/og-image.png?v=3"],
   },
   icons: {

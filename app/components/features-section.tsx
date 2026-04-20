@@ -62,7 +62,7 @@ export function FeaturesSection() {
           Built for agents that do real work.
         </h2>
         <p className="mt-5 text-base text-[var(--muted-strong)] md:text-lg">
-          One interface for the parts of Project Agent that usually scatter
+          One interface for the parts of your agent that usually scatter
           across terminals, tabs, and logs.
         </p>
       </Reveal>

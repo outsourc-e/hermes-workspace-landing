@@ -29,7 +29,7 @@ export function Brand({ compact = false }: BrandProps) {
           Hermes Workspace
         </p>
         {!compact ? (
-          <p className="micro-label mt-1">Editorial UI for Project Agent</p>
+          <p className="micro-label mt-1">Editorial UI for Hermes Agent</p>
         ) : null}
       </div>
     </div>

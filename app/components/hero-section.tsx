@@ -18,18 +18,18 @@ export function HeroSection() {
         </div>
 
         {/* Micro-label */}
-        <p className="micro-label">Hermes Workspace · v2</p>
+        <p className="micro-label">Open-source UI for your agent</p>
 
         {/* Editorial display title */}
         <h1 className="editorial-display mx-auto mt-5 max-w-3xl text-balance text-5xl text-[var(--foreground)] md:text-6xl lg:text-7xl">
-          The agent workspace,<br />
-          rebuilt as a quiet instrument.
+          Your AI agent’s<br />
+          command center.
         </h1>
 
         {/* Sub */}
         <p className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-[var(--muted-strong)] md:text-lg">
-          Chat, memory, skills, terminal, files — one editorial interface
-          for everything Project Agent does. Open-source, self-hosted, MIT.
+          Chat, memory, skills, terminal, and files — one interface for
+          everything your agent does.
         </p>
 
         {/* CTAs */}

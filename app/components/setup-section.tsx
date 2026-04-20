@@ -6,7 +6,7 @@ import { Reveal } from "./reveal";
 const backends = [
   {
     id: "hermes",
-    label: "Project Agent",
+    label: "Hermes Agent",
     description:
       "Full features — sessions, memory, skills, config, streaming. Clone, don't fork: workspace runs on vanilla hermes-agent from PyPI.",
     lines: [
