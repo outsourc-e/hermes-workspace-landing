@@ -57,7 +57,7 @@ export function FeaturesSection() {
   return (
     <section id="features" className="py-20 md:py-28">
       <Reveal className="mx-auto max-w-2xl text-center">
-        <p className="micro-label">Catalog</p>
+        <p className="micro-label">Features</p>
         <h2 className="editorial-display mt-4 text-4xl text-[var(--foreground)] md:text-5xl">
           Built for agents that do real work.
         </h2>

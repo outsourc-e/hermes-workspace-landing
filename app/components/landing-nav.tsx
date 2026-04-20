@@ -5,9 +5,9 @@ import { Brand } from "./brand";
 import { SiteThemeToggle } from "./site-theme-toggle";
 
 const navLinks = [
-  { href: "#features", label: "Catalog" },
+  { href: "#features", label: "Features" },
   { href: "#setup", label: "Setup" },
-  { href: "#screenshots", label: "Screens" },
+  { href: "#screenshots", label: "Screenshots" },
   {
     href: "https://github.com/outsourc-e/hermes-workspace",
     label: "GitHub",

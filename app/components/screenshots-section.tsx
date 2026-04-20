@@ -38,7 +38,7 @@ export function ScreenshotsSection() {
   return (
     <section id="screenshots" className="py-20 md:py-28">
       <Reveal className="mx-auto max-w-2xl text-center">
-        <p className="micro-label">Plates</p>
+        <p className="micro-label">Screens</p>
         <h2 className="editorial-display mt-4 text-4xl text-[var(--foreground)] md:text-5xl">
           Section by section.
         </h2>
@@ -52,7 +52,7 @@ export function ScreenshotsSection() {
           <Reveal key={shot.title} delay={index * 70}>
             <figure className="bg-[var(--background)]">
               <div className="border-b border-[var(--border-subtle)] px-6 py-4">
-                <p className="micro-label">{`Plate ${String(index + 1).padStart(2, "0")}`}</p>
+                <p className="micro-label">{`Screen ${String(index + 1).padStart(2, "0")}`}</p>
                 <p className="mt-1 text-base font-semibold tracking-tight text-[var(--foreground)]">
                   {shot.title}
                 </p>
