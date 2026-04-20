@@ -9,7 +9,7 @@ export function Brand({ compact = false }: BrandProps) {
     <div className="flex items-center gap-3">
       <Image
         src="/hermes-avatar.webp"
-        alt="Project Workspace"
+        alt="Hermes Workspace"
         width={compact ? 30 : 48}
         height={compact ? 30 : 48}
         className={
@@ -26,7 +26,7 @@ export function Brand({ compact = false }: BrandProps) {
               : "text-lg font-semibold tracking-tight text-[var(--foreground)]"
           }
         >
-          Project Workspace
+          Hermes Workspace
         </p>
         {!compact ? (
           <p className="micro-label mt-1">Editorial UI for Project Agent</p>

@@ -9,7 +9,7 @@ export function HeroSection() {
         <div className="mb-8 flex justify-center">
           <Image
             src="/hermes-avatar.webp"
-            alt="Project Workspace"
+            alt="Hermes Workspace"
             width={84}
             height={84}
             priority
@@ -18,7 +18,7 @@ export function HeroSection() {
         </div>
 
         {/* Micro-label */}
-        <p className="micro-label">Project Workspace · v2</p>
+        <p className="micro-label">Hermes Workspace · v2</p>
 
         {/* Editorial display title */}
         <h1 className="editorial-display mx-auto mt-5 max-w-3xl text-balance text-5xl text-[var(--foreground)] md:text-6xl lg:text-7xl">

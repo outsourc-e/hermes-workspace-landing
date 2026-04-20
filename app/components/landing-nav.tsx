@@ -20,7 +20,7 @@ export function LandingNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/85 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 md:px-10 md:py-4">
-        <a href="#top" aria-label="Project Workspace home" className="flex items-center">
+        <a href="#top" aria-label="Hermes Workspace home" className="flex items-center">
           <Brand compact />
         </a>
 

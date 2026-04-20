@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const footerLinks = [
   {
-    label: "Project Workspace",
+    label: "Hermes Workspace",
     href: "https://github.com/outsourc-e/hermes-workspace",
   },
   {
@@ -18,12 +18,12 @@ export function FooterSection() {
         <div className="flex flex-col items-center gap-5 text-center">
           <Image
             src="/hermes-avatar.webp"
-            alt="Project Workspace"
+            alt="Hermes Workspace"
             width={36}
             height={36}
             className="h-9 w-9 rounded-md border border-[var(--border)] bg-[var(--panel)] p-[3px] object-cover"
           />
-          <p className="micro-label">Project Workspace · v2</p>
+          <p className="micro-label">Hermes Workspace · v2</p>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm tracking-tight">
             {footerLinks.map((link) => (
               <a
