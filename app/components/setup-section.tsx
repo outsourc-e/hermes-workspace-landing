@@ -1,37 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { Reveal } from "./reveal";
 
-const backends = [
-  {
-    id: "hermes",
-    label: "Hermes Agent",
-    description:
-      "Full features — sessions, memory, skills, config, streaming. Clone, don't fork: workspace runs on vanilla hermes-agent from PyPI.",
-    lines: [
-      { text: "pip install hermes-agent", comment: "# vanilla, no fork" },
-      { text: "hermes setup", comment: "# pick your provider" },
-      { text: "hermes gateway run", comment: "# starts on :8642" },
-    ],
-    note: "v2+ requires no fork — upstream shipped full parity. Run `pip install -U hermes-agent` any time to upgrade.",
-  },
-  {
-    id: "openai",
-    label: "Any OpenAI backend",
-    description:
-      "Ollama, vLLM, LM Studio, or any endpoint that serves /v1/chat/completions. No Python required.",
-    lines: [
-      { text: "ollama serve", comment: "# or any OpenAI-compat server" },
-    ],
-    note: "Configure the backend URL in workspace settings after connecting.",
-  },
-];
-
 export function SetupSection() {
-  const [active, setActive] = useState("hermes");
-  const backend = backends.find((b) => b.id === active) ?? backends[0];
-
   return (
     <section id="setup" className="py-20 md:py-28">
       <Reveal className="mx-auto max-w-2xl text-center">
@@ -40,93 +11,37 @@ export function SetupSection() {
           Running in three minutes.
         </h2>
         <p className="mt-5 text-base text-[var(--muted-strong)] md:text-lg">
-          Pick your backend, install the workspace, point the browser.
+          One command installs Project Agent, clones the workspace, and wires the .env.
+          Two more start it up.
         </p>
       </Reveal>
 
       <Reveal delay={100}>
         <div className="mx-auto mt-14 max-w-3xl frame overflow-hidden">
-          {/* Step 1 */}
+          {/* Step 1 — Install everything */}
           <div className="border-b border-[var(--border-subtle)] px-6 py-5">
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="micro-label mb-2">Step 1</p>
-                <p className="text-base font-semibold text-[var(--foreground)]">
-                  Start your backend
-                </p>
-              </div>
-              <div className="flex gap-1 rounded-md border border-[var(--border)] bg-[var(--panel-2)] p-1">
-                {backends.map((b) => (
-                  <button
-                    key={b.id}
-                    type="button"
-                    onClick={() => setActive(b.id)}
-                    className={`rounded px-3 py-1.5 text-xs font-medium tracking-tight transition-colors ${
-                      active === b.id
-                        ? "bg-[var(--background)] text-[var(--foreground)] shadow-[inset_0_0_0_1px_var(--border)]"
-                        : "text-[var(--muted)] hover:text-[var(--foreground)]"
-                    }`}
-                  >
-                    {b.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="px-6 py-5">
-            <p className="text-sm leading-relaxed text-[var(--muted-strong)]">
-              {backend.description}
-            </p>
-
-            <div className="terminal-card mt-4 overflow-hidden">
-              <div className="flex items-center gap-2 border-b border-white/5 px-4 py-2">
-                <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-                <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-                <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-                <span className="ml-auto text-[10px] tracking-[0.16em] text-white/30 uppercase">
-                  terminal
-                </span>
-              </div>
-              <div className="overflow-x-auto px-4 py-3 font-mono text-xs leading-6">
-                {backend.lines.map((line) => (
-                  <div key={line.text} className="min-w-max whitespace-nowrap">
-                    <span className="term-prompt mr-2">$</span>
-                    <span className="text-[var(--terminal-text)]">{line.text}</span>
-                    {line.comment && (
-                      <span className="term-comment ml-2">{line.comment}</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {backend.note && (
-              <p className="mt-3 text-xs leading-relaxed text-[var(--muted)]">
-                {backend.note}
+            <div className="flex flex-col gap-1">
+              <p className="micro-label">Step 1</p>
+              <p className="text-base font-semibold text-[var(--foreground)]">
+                Install in one line
               </p>
-            )}
-          </div>
-
-          {/* Step 2 */}
-          <div className="border-y border-[var(--border-subtle)] px-6 py-5">
-            <p className="micro-label mb-2">Step 2</p>
-            <p className="text-base font-semibold text-[var(--foreground)]">
-              Install the workspace
-            </p>
+            </div>
           </div>
 
           <div className="px-6 py-5">
             <p className="text-sm leading-relaxed text-[var(--muted-strong)]">
-              One command. Re-runnable. Detects Node, Python, pnpm — installs
-              what's missing.
+              Detects Node 22+, Python 3.11+, pnpm — installs what's missing,
+              installs <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[12px] font-mono text-[var(--foreground)]">hermes-agent</code> from PyPI,
+              clones the workspace, and configures <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[12px] font-mono text-[var(--foreground)]">.env</code>.
+              Re-runnable.
             </p>
+
             <div className="terminal-card mt-4 overflow-hidden">
-              <div className="flex items-center gap-2 border-b border-white/5 px-4 py-2">
+              <div className="flex items-center gap-2 border-b border-[var(--terminal-border)] px-4 py-2">
                 <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
                 <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
                 <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-                <span className="ml-auto text-[10px] tracking-[0.16em] text-white/30 uppercase">
+                <span className="ml-auto text-[10px] tracking-[0.16em] text-[var(--terminal-muted)] uppercase">
                   terminal
                 </span>
               </div>
@@ -137,15 +52,62 @@ export function SetupSection() {
                     curl -fsSL https://hermes-workspace.com/install.sh | bash
                   </span>
                 </div>
-                <div className="min-w-max whitespace-nowrap text-[var(--terminal-text)]/60">
-                  <span className="term-comment">
-                    # opens at http://localhost:3000
-                  </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 2 — Start the gateway + UI */}
+          <div className="border-y border-[var(--border-subtle)] px-6 py-5">
+            <div className="flex flex-col gap-1">
+              <p className="micro-label">Step 2</p>
+              <p className="text-base font-semibold text-[var(--foreground)]">
+                Start the gateway and the UI
+              </p>
+            </div>
+          </div>
+
+          <div className="px-6 py-5">
+            <p className="text-sm leading-relaxed text-[var(--muted-strong)]">
+              Two daemons. Project Agent on <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[12px] font-mono text-[var(--foreground)]">:8642</code> handles
+              models, memory, and skills. The workspace on <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[12px] font-mono text-[var(--foreground)]">:3000</code> is your interface.
+            </p>
+
+            <div className="terminal-card mt-4 overflow-hidden">
+              <div className="flex items-center gap-2 border-b border-[var(--terminal-border)] px-4 py-2">
+                <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                <span className="ml-auto text-[10px] tracking-[0.16em] text-[var(--terminal-muted)] uppercase">
+                  terminal
+                </span>
+              </div>
+              <div className="overflow-x-auto px-4 py-3 font-mono text-xs leading-6">
+                <div className="min-w-max whitespace-nowrap">
+                  <span className="term-prompt mr-2">$</span>
+                  <span className="text-[var(--terminal-text)]">hermes gateway run</span>
+                  <span className="term-comment ml-2"># terminal 1 · :8642</span>
+                </div>
+                <div className="min-w-max whitespace-nowrap">
+                  <span className="term-prompt mr-2">$</span>
+                  <span className="text-[var(--terminal-text)]">cd ~/hermes-workspace && pnpm dev</span>
+                  <span className="term-comment ml-2"># terminal 2 · :3000</span>
                 </div>
               </div>
             </div>
+
             <p className="mt-3 text-xs leading-relaxed text-[var(--muted)]">
-              Prefer manual? <a className="underline decoration-[var(--brand-line)] underline-offset-2 hover:text-[var(--brand)]" href="https://github.com/outsourc-e/hermes-workspace#install">git clone + pnpm install</a>.
+              Or run <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[11px] font-mono text-[var(--foreground)]">pnpm start:all</code> to launch both at once.
+              First run prompts for <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[11px] font-mono text-[var(--foreground)]">hermes setup</code> to pick a provider.
+            </p>
+          </div>
+
+          {/* Optional — backend choice footnote */}
+          <div className="border-t border-[var(--border-subtle)] bg-[var(--panel-2)] px-6 py-4">
+            <p className="text-xs leading-relaxed text-[var(--muted-strong)]">
+              <span className="micro-label mr-2">Compatible with</span>
+              Anthropic, OpenAI, OpenRouter, Atomic Chat, Ollama, vLLM, LM Studio,
+              and any OpenAI-compatible <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[11px] font-mono text-[var(--foreground)]">/v1/chat/completions</code> endpoint.
+              Pick during <code className="rounded bg-[var(--brand-soft)] px-1 py-0.5 text-[11px] font-mono text-[var(--foreground)]">hermes setup</code>.
             </p>
           </div>
         </div>

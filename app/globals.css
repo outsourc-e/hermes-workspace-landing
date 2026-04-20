@@ -22,9 +22,11 @@
   --warning: #9c6b2f;             /* restrained ochre */
   --panel: #fbfbf6;
   --panel-2: #f1f1ec;
-  --terminal: #0c1622;
-  --terminal-text: #c8d3df;
-  --terminal-border: rgba(22, 49, 95, 0.32);
+  /* Terminal — paper-cool: ivory bg + ink text + cobalt prompt */
+  --terminal: #f1f1ec;
+  --terminal-text: #1a2740;
+  --terminal-muted: rgba(22, 49, 95, 0.42);
+  --terminal-border: rgba(22, 49, 95, 0.16);
 }
 
 @theme inline {
@@ -145,7 +147,7 @@ body::before {
   transform: translateY(0);
 }
 
-/* ── Terminal chrome (preserved, retoned) ── */
+/* ── Terminal chrome — paper-cool, cobalt prompt, ink text ── */
 
 .terminal-card {
   background: var(--terminal);
@@ -153,12 +155,15 @@ body::before {
   border: 1px solid var(--terminal-border);
   border-radius: 6px;
   font-family: var(--font-mono);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 .terminal-card .term-prompt {
-  color: var(--brand-light);
+  color: var(--brand);
+  font-weight: 600;
 }
 .terminal-card .term-comment {
-  color: rgba(200, 211, 223, 0.45);
+  color: var(--terminal-muted);
+  font-style: italic;
 }
 
 /* ── CTA buttons ── */
