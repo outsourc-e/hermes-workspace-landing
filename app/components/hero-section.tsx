@@ -26,7 +26,7 @@ export function HeroSection() {
           className="star-pill mx-auto inline-flex transition-transform hover:scale-[1.03]"
         >
           <StarIcon className="h-3 w-3" />
-          1,600+ stars on GitHub
+          2,000+ stars on GitHub
         </a>
 
         {/* Editorial display title */}
