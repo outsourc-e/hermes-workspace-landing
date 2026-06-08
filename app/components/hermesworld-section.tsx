@@ -9,7 +9,7 @@ export function HermesWorldSection() {
       <Reveal className="mx-auto max-w-2xl text-center">
         <div className="mb-5 flex justify-center">
           <img
-            src="/hermesworld-crest.png?v=3"
+            src="/hermesworld-crest.png?v=4"
             alt="HermesWorld"
             className="h-20 w-auto md:h-24"
           />
