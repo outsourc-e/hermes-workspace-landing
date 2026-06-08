@@ -1,6 +1,7 @@
 import { BackgroundEffects } from "./components/background-effects";
 import { FeaturesSection } from "./components/features-section";
 import { FooterSection } from "./components/footer-section";
+import { HermesWorldSection } from "./components/hermesworld-section";
 import { HeroSection } from "./components/hero-section";
 import { LandingNav } from "./components/landing-nav";
 import { ScreenshotsSection } from "./components/screenshots-section";
@@ -18,6 +19,7 @@ export default function Home() {
         <SetupSection />
         <ScreenshotsSection />
         <FeaturesSection />
+        <HermesWorldSection />
       </main>
 
       <FooterSection />

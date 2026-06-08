@@ -20,7 +20,7 @@ const features: Feature[] = [
     number: "02",
     title: "Memory & skills",
     description:
-      "Persistent memory plus a deep catalog of 100+ skills your agent can pull from. Browse and edit live.",
+      "Persistent memory plus a deep catalog of 2,000+ skills your agent can pull from. Browse and edit live.",
     icon: LibraryIcon,
   },
   {
@@ -73,8 +73,8 @@ export function FeaturesSection() {
           <div className="flex flex-wrap items-baseline justify-center gap-x-12 gap-y-4 py-6">
             {[
               { value: "6", label: "core surfaces" },
-              { value: "100+", label: "skills" },
-              { value: "PWA", label: "mobile parity" },
+              { value: "2,000+", label: "skills" },
+              { value: "5,500+", label: "stars" },
               { value: "MIT", label: "open source" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">

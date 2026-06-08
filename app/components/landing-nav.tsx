@@ -9,6 +9,11 @@ const navLinks = [
   { href: "#setup", label: "Setup" },
   { href: "#screenshots", label: "Screenshots" },
   {
+    href: "https://hermes-world.ai",
+    label: "HermesWorld",
+    external: true,
+  },
+  {
     href: "https://github.com/outsourc-e/hermes-workspace",
     label: "GitHub",
     external: true,
