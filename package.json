@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "prebuild": "cp scripts/install.sh public/install.sh",
-    "deploy": "next build && npx -y wrangler@latest deploy"
+    "deploy": "npm run build && npx -y wrangler@latest deploy"
   },
   "dependencies": {
     "next": "16.1.6",
