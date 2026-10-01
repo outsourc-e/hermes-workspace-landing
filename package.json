@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prebuild": "cp scripts/install.sh public/install.sh",
+    "deploy": "next build && npx -y wrangler@latest deploy"
   },
   "dependencies": {
     "next": "16.1.6",
